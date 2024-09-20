@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-demo-jenkins-gitops
+  description: This is GitOps manifest for go-demo-jenkins   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: go-demo-jenkins
+    jenkins.io/job-full-name: go-demo-jenkins-gitops
+    backstage.io/kubernetes-id: go-demo-jenkins 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-demo-jenkins
